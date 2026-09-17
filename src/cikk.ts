@@ -64,7 +64,8 @@ export function szovegCikk(c: Cikk): string {
     .replace(/^#{1,3}\s+/gm, '')
     .replace(/[*_`>]/g, '')
     .replace(/^\s*[-*]\s+/gm, '')
-  return [c.cim, c.bevezeto, c.leiras, torzs].join(' ').replace(/\s+/g, ' ').trim()
+  // A metaCim is számít: a kereső azt látja címként (a NextRaktár eredeti szószáma is tartalmazta).
+  return [c.cim, c.metaCim ?? '', c.bevezeto, c.leiras, torzs].join(' ').replace(/\s+/g, ' ').trim()
 }
 
 export function szoszam(c: Cikk): number {
