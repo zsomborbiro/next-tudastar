@@ -62,8 +62,44 @@ export function inditSzerver(opts: { dist: string; port: number }): Promise<{ cl
   })
 }
 
+/**
+ * Deploy-hookok: a NextRaktár a tudástárat a SAJÁT buildjében pillanatképezi
+ * (spec 4.2 kivétel), ezért új tartalom után újra kell építeni. Ezt innen
+ * indítjuk: friss image indulásakor POST a `DEPLOY_HOOKS` URL-ekre.
+ * CSAK friss buildnél (15 perc) — egy sima újraindítás vagy crash-loop ne
+ * buildeltessen. Hiba nem dönti el a szolgáltatást: naplózunk és megyünk tovább.
+ */
+export async function hookokatHiv(opts: { dist: string; hookok: string[]; most?: number; fetchFn?: typeof fetch }): Promise<string[]> {
+  if (opts.hookok.length === 0) return []
+  let build: number
+  try {
+    build = Date.parse(JSON.parse(readFileSync(join(opts.dist, 'v1/health.json'), 'utf8')).build)
+  } catch {
+    return []
+  }
+  const most = opts.most ?? Date.now()
+  if (!(most - build < 15 * 60_000)) return []
+  const f = opts.fetchFn ?? fetch
+  const hivott: string[] = []
+  for (const url of opts.hookok) {
+    const nev = url.replace(/\/[^/]+$/, '/…')
+    try {
+      const r = await f(url, { method: 'POST' })
+      console.log(`deploy-hook ${nev}: ${r.status}`)
+      hivott.push(url)
+    } catch (e) {
+      console.log(`deploy-hook ${nev}: HIBA ${(e as Error).message}`)
+    }
+  }
+  return hivott
+}
+
 if (process.argv[1] && /server\.[jt]s$/.test(process.argv[1])) {
   const dist = process.env.DIST ?? join(process.cwd(), 'dist')
   const port = Number(process.env.PORT ?? 3000)
-  inditSzerver({ dist, port }).then(({ port }) => console.log(`tudástár szolgáltatás: http://0.0.0.0:${port} (dist: ${dist})`))
+  inditSzerver({ dist, port }).then(({ port }) => {
+    console.log(`tudástár szolgáltatás: http://0.0.0.0:${port} (dist: ${dist})`)
+    const hookok = (process.env.DEPLOY_HOOKS ?? '').split(',').map((s) => s.trim()).filter(Boolean)
+    if (hookok.length) setTimeout(() => hookokatHiv({ dist, hookok }), 60_000).unref()
+  })
 }

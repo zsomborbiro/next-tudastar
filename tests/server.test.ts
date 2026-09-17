@@ -46,3 +46,22 @@ test('csak GET és HEAD', async () => {
   const h = await fetch(`${base}/v1/health`, { method: 'HEAD' })
   assert.equal(h.status, 200); assert.equal(await h.text(), '')
 })
+
+import { hookokatHiv } from '../src/server.ts'
+import { writeFileSync, mkdirSync } from 'node:fs'
+
+test('deploy-hook: friss build esetén minden URL-t meghív (POST), régi build esetén egyet sem', async () => {
+  const d = mkdtempSync(join(tmpdir(), 'tudastar-hook-'))
+  mkdirSync(join(d, 'v1'), { recursive: true })
+  const hivasok: string[] = []
+  const fetchFn = (async (url: any, init: any) => { hivasok.push(`${init?.method} ${url}`); return new Response('ok') }) as typeof fetch
+  const most = Date.parse('2026-09-18T10:00:00Z')
+  writeFileSync(join(d, 'v1/health.json'), JSON.stringify({ ok: true, build: '2026-09-18T09:55:00Z' }))
+  const friss = await hookokatHiv({ dist: d, hookok: ['https://a/x', 'https://b/y'], most, fetchFn })
+  assert.deepEqual(friss, ['https://a/x', 'https://b/y'])
+  assert.deepEqual(hivasok, ['POST https://a/x', 'POST https://b/y'])
+  writeFileSync(join(d, 'v1/health.json'), JSON.stringify({ ok: true, build: '2026-09-18T08:00:00Z' }))
+  assert.deepEqual(await hookokatHiv({ dist: d, hookok: ['https://a/x'], most, fetchFn }), [])
+  assert.deepEqual(await hookokatHiv({ dist: d, hookok: [], most, fetchFn }), [])
+  rmSync(d, { recursive: true })
+})
