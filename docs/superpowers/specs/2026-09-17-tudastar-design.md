@@ -128,7 +128,7 @@ Egyszeri script (`scripts/import-nextraktar.ts`): a `site/src/lib/knowledge.ts`
 `shot`→kép a `shots.ts` alapján (`https://nextraktar.hu/<base>-<legnagyobb szélesség>.webp`).
 Az `updated`→`frissitve`, `forrasok`/`ellenorizve` egy az egyben. A slugok
 változatlanok. Az import után a NextRaktár repóból a `knowledge.ts` + tesztje kikerül
-(3.4).
+(4.4).
 
 ## 3. Tartalom-szolgáltatás: `tudastar.next-soft.hu`
 
