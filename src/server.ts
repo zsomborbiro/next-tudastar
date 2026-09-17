@@ -1,5 +1,5 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
-import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { closeSync, openSync, readFileSync, statSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { createHash } from 'node:crypto'
 import { join, normalize, resolve, sep } from 'node:path'
@@ -91,9 +91,16 @@ export async function hookokatHiv(opts: { dist: string; hookok: string[]; most?:
   // újraindítás (ugyanaz a konténer) megtalálja és nem hív újra, egy redeploy
   // (új konténer) nem — 2026-09-18-án egy restart 3 perccel a friss build után
   // újra hívott, és a NextHub a futó NextRaktár-buildet cancel-elte.
+  // `wx`: atomi „hozz létre, ha nincs" — nincs ellenőrzés-majd-írás rés, és
+  // meglévő symlinket sem követ. (A konténerben egyetlen process fut, a /tmp
+  // a konténeré; ez inkább rend, mint valós támadási felület.)
   const marker = join(opts.markerMappa ?? tmpdir(), `tudastar-hook-${buildBelyeg.replace(/[^0-9]/g, '')}`)
-  if (existsSync(marker)) return []
-  try { writeFileSync(marker, '') } catch { /* csak-olvasható fs: akkor a 15 perces ablak véd */ }
+  try {
+    closeSync(openSync(marker, 'wx', 0o600))
+  } catch (e) {
+    if ((e as NodeJS.ErrnoException).code === 'EEXIST') return []
+    /* csak-olvasható fs vagy más hiba: akkor a 15 perces ablak véd */
+  }
   const f = opts.fetchFn ?? fetch
   const hivott: string[] = []
   for (const url of opts.hookok) {
