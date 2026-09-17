@@ -74,7 +74,8 @@ termek: nextbill
 slug: nav-online-szamla-kotelezo
 cim: "Kötelező-e a NAV Online Számla?"       # márkanév NÉLKÜL — a lap sablonja teszi hozzá
 metaCim: "…"                                  # opcionális; ha nincs, a `cim`
-leiras: "…"                                   # meta description, 120–158 karakter
+bevezeto: "…"                                 # lead — a lap kiemelten, a törzs előtt mutatja
+leiras: "…"                                   # meta description, 100–165 karakter
 tema: jogszabaly | gyakorlat | penzugy
 megjelent: 2026-09-20
 frissitve: 2026-09-25                         # csak ÉRDEMI változásnál (sitemap lastmod, dateModified)
@@ -105,8 +106,8 @@ A NextRaktár `knowledge.test.ts` szabályai átvéve, termékenként kapcsolhat
 |---|---|
 | frontmatter-séma teljes és típushelyes; `termek` létező; `slug` = fájlnév, egyedi terméken belül | minden |
 | `cim` egyedi terméken belül, nem tartalmazza a márkanevet | minden |
-| `leiras` 120–158 karakter | minden |
-| legalább 600 szó (cím+lead+törzs) | minden |
+| `leiras` 100–165 karakter (a meglévő NextRaktár-cikkek 130–159) | minden |
+| legalább 600 szó (cím+bevezető+leírás+törzs) | minden |
 | nincs beégetett Ft-összeg (`\d+\s*(Ft|forint)`) | minden |
 | nincs paragrafus-hivatkozás (`\d+\.\s*§`) | `jogszabaly` |
 | évszám csak `forrasok` + `ellenorizve` mellett | `jogszabaly` |
@@ -126,7 +127,7 @@ Az olvasási idő **számított** (≈200 szó/perc, min. 1), nem tárolt mező.
 Egyszeri script (`scripts/import-nextraktar.ts`): a `site/src/lib/knowledge.ts`
 `ARTICLES` tömbjét markdownná írja — `p`→bekezdés, `h2`→`##`, `ul`→lista, `callout`→`:::callout`,
 `shot`→kép a `shots.ts` alapján (`https://nextraktar.hu/<base>-<legnagyobb szélesség>.webp`).
-Az `updated`→`frissitve`, `forrasok`/`ellenorizve` egy az egyben. A slugok
+Az `updated`→`frissitve`, `lead`→`bevezeto`, `forrasok`/`ellenorizve` egy az egyben; a `kapcsolodo`-t (ami ott nem volt) azonos témájú cikkekből tölti determinisztikusan. A slugok
 változatlanok. Az import után a NextRaktár repóból a `knowledge.ts` + tesztje kikerül
 (4.4).
 
