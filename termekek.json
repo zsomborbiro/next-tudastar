@@ -1,0 +1,8 @@
+{
+  "nextraktar": { "nev": "nextraktár", "domain": "https://nextraktar.hu", "orgId": "https://nextraktar.hu/#organization", "szabalyok": { "nincsProbaido": true,  "nincsKartyasFizetes": true  } },
+  "nextbill":   { "nev": "NextBill",   "domain": "https://nextbill.hu",   "orgId": "https://nextbill.hu/#organization",   "szabalyok": { "nincsProbaido": false, "nincsKartyasFizetes": false } },
+  "nexthub":    { "nev": "NextHub",    "domain": "https://nexthub.hu",    "orgId": "https://nexthub.hu/#organization",    "szabalyok": { "nincsProbaido": false, "nincsKartyasFizetes": false } },
+  "nextceg":    { "nev": "NextCég",    "domain": "https://nextceg.hu",    "orgId": "https://nextceg.hu/#organization",    "szabalyok": { "nincsProbaido": false, "nincsKartyasFizetes": false } },
+  "nextweblap": { "nev": "NextWeblap", "domain": "https://nextweblap.hu", "orgId": "https://nextweblap.hu/#organization", "szabalyok": { "nincsProbaido": false, "nincsKartyasFizetes": false } },
+  "nextsoft":   { "nev": "Nextsoft",   "domain": "https://next-soft.hu",  "orgId": "https://next-soft.hu/#organization",  "szabalyok": { "nincsProbaido": false, "nincsKartyasFizetes": false } }
+}
