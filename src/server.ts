@@ -1,5 +1,6 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
-import { readFileSync, statSync } from 'node:fs'
+import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { createHash } from 'node:crypto'
 import { join, normalize, resolve, sep } from 'node:path'
 
@@ -74,16 +75,25 @@ export function inditSzerver(opts: { dist: string; port: number }): Promise<{ cl
  * réteget adja vissza, a bélyeg marad → nem hív. Ez szándékos: ha a tartalom
  * nem változott, a NextRaktárt sem kell újraépíteni. (2026-09-18-án így derült ki.)
  */
-export async function hookokatHiv(opts: { dist: string; hookok: string[]; most?: number; fetchFn?: typeof fetch }): Promise<string[]> {
+export async function hookokatHiv(opts: { dist: string; hookok: string[]; most?: number; fetchFn?: typeof fetch; markerMappa?: string }): Promise<string[]> {
   if (opts.hookok.length === 0) return []
+  let buildBelyeg: string
   let build: number
   try {
-    build = Date.parse(JSON.parse(readFileSync(join(opts.dist, 'v1/health.json'), 'utf8')).build)
+    buildBelyeg = JSON.parse(readFileSync(join(opts.dist, 'v1/health.json'), 'utf8')).build
+    build = Date.parse(buildBelyeg)
   } catch {
     return []
   }
   const most = opts.most ?? Date.now()
   if (!(most - build < 15 * 60_000)) return []
+  // Egy image → egy hívás. A marker a konténer fájlrendszerén ül: egy sima
+  // újraindítás (ugyanaz a konténer) megtalálja és nem hív újra, egy redeploy
+  // (új konténer) nem — 2026-09-18-án egy restart 3 perccel a friss build után
+  // újra hívott, és a NextHub a futó NextRaktár-buildet cancel-elte.
+  const marker = join(opts.markerMappa ?? tmpdir(), `tudastar-hook-${buildBelyeg.replace(/[^0-9]/g, '')}`)
+  if (existsSync(marker)) return []
+  try { writeFileSync(marker, '') } catch { /* csak-olvasható fs: akkor a 15 perces ablak véd */ }
   const f = opts.fetchFn ?? fetch
   const hivott: string[] = []
   for (const url of opts.hookok) {

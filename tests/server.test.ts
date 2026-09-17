@@ -57,11 +57,14 @@ test('deploy-hook: friss build esetén minden URL-t meghív (POST), régi build 
   const fetchFn = (async (url: any, init: any) => { hivasok.push(`${init?.method} ${url}`); return new Response('ok') }) as typeof fetch
   const most = Date.parse('2026-09-18T10:00:00Z')
   writeFileSync(join(d, 'v1/health.json'), JSON.stringify({ ok: true, build: '2026-09-18T09:55:00Z' }))
-  const friss = await hookokatHiv({ dist: d, hookok: ['https://a/x', 'https://b/y'], most, fetchFn })
+  const friss = await hookokatHiv({ dist: d, hookok: ['https://a/x', 'https://b/y'], most, fetchFn, markerMappa: d })
   assert.deepEqual(friss, ['https://a/x', 'https://b/y'])
   assert.deepEqual(hivasok, ['POST https://a/x', 'POST https://b/y'])
+  // Ugyanaz az image (bélyeg) még egyszer — pl. újraindítás: nem hív újra.
+  assert.deepEqual(await hookokatHiv({ dist: d, hookok: ['https://a/x'], most, fetchFn, markerMappa: d }), [])
+  assert.equal(hivasok.length, 2)
   writeFileSync(join(d, 'v1/health.json'), JSON.stringify({ ok: true, build: '2026-09-18T08:00:00Z' }))
-  assert.deepEqual(await hookokatHiv({ dist: d, hookok: ['https://a/x'], most, fetchFn }), [])
-  assert.deepEqual(await hookokatHiv({ dist: d, hookok: [], most, fetchFn }), [])
+  assert.deepEqual(await hookokatHiv({ dist: d, hookok: ['https://a/x'], most, fetchFn, markerMappa: d }), [])
+  assert.deepEqual(await hookokatHiv({ dist: d, hookok: [], most, fetchFn, markerMappa: d }), [])
   rmSync(d, { recursive: true })
 })
