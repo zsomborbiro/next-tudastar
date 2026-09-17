@@ -26,7 +26,8 @@ function ujMd() {
   const md = new MarkdownIt({ html: false, linkify: false, typographer: false })
 
   // :::callout Cím … :::
-  md.use(container, 'callout', {
+  // A @types/markdown-it-container régebbi markdown-it típusra épül — a plugin futásidőben rendben van.
+  md.use(container as unknown as MarkdownIt.PluginWithParams, 'callout', {
     render(tokens: any[], idx: number) {
       const t = tokens[idx]
       if (t.nesting === 1) {
