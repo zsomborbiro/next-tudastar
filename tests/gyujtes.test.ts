@@ -28,6 +28,8 @@ test('önhivatkozás és kettőnél kevesebb kapcsolódó nem megy át', () => {
   assert.throws(() => feloldKapcsolodo(cikkek), /önmagára/)
   cikkek[0].kapcsolodo = ['nextbill/minta']
   assert.throws(() => feloldKapcsolodo(cikkek), /legalább 2/)
+  cikkek[0].kapcsolodo = ['nextbill/minta', 'nextbill/minta']
+  assert.throws(() => feloldKapcsolodo(cikkek), /ismétlődő/)
 })
 
 test('hibás fejlécű cikk a gyűjtést is megállítja', () => {

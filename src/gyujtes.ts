@@ -33,6 +33,7 @@ export function feloldKapcsolodo(cikkek: Cikk[]): Map<string, Cikk> {
   const hibak: string[] = []
   for (const c of cikkek) {
     if (c.kapcsolodo.length < 2) hibak.push(`${kulcs(c)}: legalább 2 kapcsolódó cikk kell`)
+    if (new Set(c.kapcsolodo).size !== c.kapcsolodo.length) hibak.push(`${kulcs(c)}: ismétlődő kapcsolódó cikk`)
     for (const k of c.kapcsolodo) {
       if (k === kulcs(c)) hibak.push(`${kulcs(c)}: önmagára hivatkozik`)
       else if (!terkep.has(k)) hibak.push(`${kulcs(c)}: nem létező kapcsolódó cikk: ${k}`)
