@@ -1,4 +1,4 @@
-import MarkdownIt from 'markdown-it'
+import MarkdownIt, { type PluginWithParams } from 'markdown-it'
 import container from 'markdown-it-container'
 import { CSALADI_DOMAINEK } from './szabalyok.ts'
 import type { Cikk } from './tipusok.ts'
@@ -27,7 +27,7 @@ function ujMd() {
 
   // :::callout Cím … :::
   // A @types/markdown-it-container régebbi markdown-it típusra épül — a plugin futásidőben rendben van.
-  md.use(container as unknown as MarkdownIt.PluginWithParams, 'callout', {
+  md.use(container as unknown as PluginWithParams, 'callout', {
     render(tokens: any[], idx: number) {
       const t = tokens[idx]
       if (t.nesting === 1) {
