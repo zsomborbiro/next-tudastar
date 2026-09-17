@@ -179,6 +179,18 @@ marad technikai tartalék.
 
 ### 4.2 Adatlekérés
 
+**Kivétel — NextRaktár (döntés 2026-09-18):** a NextRaktáron a cikkeket tíz hely olvassa
+szinkron módon (sitemap, a kurált belső linkháló `related.ts`, öt teszt-család köztük
+jogi-megfelelőségi őrökkel), és a `[slug]` lap szándékosan `dynamicParams=false`. Ott ezért
+NEM futásidejű ISR, hanem **pillanatkép a buildben**: a Docker-build első lépése letölti a
+`/v1/nextraktar/*.json`-t egy generált, gitignore-olt `src/lib/tudastar.generated.json`-ba, a
+`lib/knowledge.ts` ebből adja a régi felületet (`ARTICLES`, `findArticle`, `articleText`…), így a
+fogyasztók és az őrök változatlanul futnak. Elérhetetlen szolgáltatás = bukó build. Új cikk
+után a NextRaktárt újra kell buildelni — ezt a tudástár-szolgáltatás automatizálja: induláskor
+(csak friss image esetén) meghívja a `DEPLOY_HOOKS` env-ben felsorolt NextHub deploy-hookokat.
+A többi öt oldalra az alábbi ISR-modell érvényes.
+
+
 Next.js `fetch(…, { next: { revalidate: 3600 } })` → statikus lapok, óránként
 újraérvényesítve. `generateStaticParams` az `index.json`-ból. **Build közben elérhetetlen
 szolgáltatás = bukó build** (szándékos: ne deployoljunk üres tudástárral). Futásidőben az ISR
@@ -210,8 +222,11 @@ A hat oldal négy stackben él (JS/TS, Next 14/15, npm/pnpm) → nem közös cso
 a helyi konvenciókhoz igazított másolat. A JSON-séma és a class-nevek a szolgáltatásban
 rögzítettek, ezért a másolatok a tartalmon nem tudnak szétdriftelni, csak a stíluson.
 
-NextRaktár: a `lib/knowledge.ts`, `knowledge.test.ts`, a `tudastar/` lapok belső
-adatforrása cserélődik; a `shots.ts` és a képek maradnak (a cikkek URL-lel hivatkozzák).
+NextRaktár: a `lib/knowledge.ts` tartalma (4100 sor) kikerül, marad egy vékony betöltő a
+generált pillanatképből (4.2 kivétel); a `knowledge.test.ts`-ből a tartalom-repóba átvitt
+általános szabályok kikerülnek, a GYIK-őrök maradnak; a `tudastar/[slug]` lap a kész HTML-t
+injektálja (`ArticleBody` blokk-renderelő helyett); a `shots.ts` és a képek maradnak (a
+cikkek URL-lel hivatkozzák), a képernyőkép-nagyító a cikkekben megszűnik.
 A `faq.ts` „nincs szó szerint átvett GYIK-válasz" szabálya a tartalom-repóba nem vihető
 (nem ismeri a GYIK-et) — a NextRaktár repóban marad egy teszt, ami a szolgáltatásból
 lekért cikkek szövegét veti össze a GYIK-kel (hálózat nélkül skip).
