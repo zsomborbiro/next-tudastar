@@ -68,6 +68,11 @@ export function inditSzerver(opts: { dist: string; port: number }): Promise<{ cl
  * indítjuk: friss image indulásakor POST a `DEPLOY_HOOKS` URL-ekre.
  * CSAK friss buildnél (15 perc) — egy sima újraindítás vagy crash-loop ne
  * buildeltessen. Hiba nem dönti el a szolgáltatást: naplózunk és megyünk tovább.
+ *
+ * ⚠ A `health.build` bélyeg a `dist` GENERÁLÁSÁNAK ideje, nem a deployé: a
+ * NextHub build-cache-e tartalom-változás nélkül (pl. kézi redeploy) a régi
+ * réteget adja vissza, a bélyeg marad → nem hív. Ez szándékos: ha a tartalom
+ * nem változott, a NextRaktárt sem kell újraépíteni. (2026-09-18-án így derült ki.)
  */
 export async function hookokatHiv(opts: { dist: string; hookok: string[]; most?: number; fetchFn?: typeof fetch }): Promise<string[]> {
   if (opts.hookok.length === 0) return []
