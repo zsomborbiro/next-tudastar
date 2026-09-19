@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextweblap/kosarelhagyas-az-elso-harom-javitas
   - nextweblap/webshop-inditas-mi-kell-hozza-jogilag
+  - nextceg/ceginformacio-mit-jelentenek-a-mezok
   - nextraktar/vonalkod-a-boltban
 ---
 

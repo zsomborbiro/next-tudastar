@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextbill/devizas-szamla-mnb-arfolyam-es-a-nav
   - nextbill/szamla-vagy-nyugta-mikor-melyik
+  - nextsoft/crm-kisvallalkozasnak-mikor-eri-meg
   - nextraktar/szallitoi-rendeles-osszeallitasa
 ---
 

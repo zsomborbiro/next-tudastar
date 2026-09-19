@@ -14,6 +14,7 @@ ellenorizve: 2026-09-19
 kapcsolodo:
   - nextsoft/crm-kisvallalkozasnak-mikor-eri-meg
   - nextsoft/weboldal-vagy-webshop-melyiket-mikor
+  - nexthub/hol-vannak-az-ugyfeleid-adatai-gdpr-es-hosting
   - nextraktar/leltarhiany-okai-a-boltban
 ---
 

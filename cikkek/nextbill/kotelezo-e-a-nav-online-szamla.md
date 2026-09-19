@@ -14,6 +14,7 @@ ellenorizve: 2026-09-19
 kapcsolodo:
   - nextbill/szamla-vagy-nyugta-mikor-melyik
   - nextbill/ismetlodo-szamla-mit-lehet-automatizalni
+  - nextweblap/webshop-inditas-mi-kell-hozza-jogilag
   - nextraktar/e-nyugta-nyugtaadat-szolgaltatas
 ---
 

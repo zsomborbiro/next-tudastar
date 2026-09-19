@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextceg/mit-ellenorizz-egy-cegen-mielott-megbizod
   - nextceg/hogyan-legyen-megtalalhato-egy-kisvallalkozas
+  - nextbill/szamla-vagy-nyugta-mikor-melyik
   - nextraktar/torzsadat-boltnyitaskor
 ---
 

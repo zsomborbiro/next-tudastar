@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextweblap/webshop-inditas-mi-kell-hozza-jogilag
   - nextweblap/kosarelhagyas-az-elso-harom-javitas
+  - nexthub/sajat-domain-bekotese-dns-lepesrol-lepesre
   - nextraktar/masodik-bolt-nyitasa
 ---
 

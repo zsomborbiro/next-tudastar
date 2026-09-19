@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextbill/kotelezo-e-a-nav-online-szamla
   - nextbill/ismetlodo-szamla-mit-lehet-automatizalni
+  - nexthub/hol-vannak-az-ugyfeleid-adatai-gdpr-es-hosting
   - nextraktar/arres-es-beszerzesi-ar
 ---
 

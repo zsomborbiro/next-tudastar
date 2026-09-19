@@ -14,6 +14,7 @@ ellenorizve: 2026-09-19
 kapcsolodo:
   - nextceg/hogyan-kerj-arajanlatot-hogy-osszehasonlithato-legyen
   - nextceg/ceginformacio-mit-jelentenek-a-mezok
+  - nextbill/kotelezo-e-a-nav-online-szamla
   - nextraktar/szallitoi-rendeles-osszeallitasa
 ---
 

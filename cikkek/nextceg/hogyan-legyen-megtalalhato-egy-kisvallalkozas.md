@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextceg/hogyan-kerj-arajanlatot-hogy-osszehasonlithato-legyen
   - nextceg/ceginformacio-mit-jelentenek-a-mezok
+  - nextsoft/weboldal-vagy-webshop-melyiket-mikor
   - nextraktar/masodik-bolt-nyitasa
 ---
 

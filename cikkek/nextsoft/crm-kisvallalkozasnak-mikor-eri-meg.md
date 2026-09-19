@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextsoft/mennyibe-kerul-egy-weboldal
   - nextsoft/kamerarendszer-a-boltban-mit-szabad-es-mit-kell-kiirni
+  - nextceg/hogyan-kerj-arajanlatot-hogy-osszehasonlithato-legyen
   - nextraktar/munkaido-beosztas-es-nyilvantartas-a-boltban
 ---
 

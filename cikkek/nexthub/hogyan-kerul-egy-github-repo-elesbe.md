@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nexthub/sajat-domain-bekotese-dns-lepesrol-lepesre
   - nexthub/shared-hosting-vagy-alkalmazas-hosting
+  - nextsoft/mennyibe-kerul-egy-weboldal
   - nextraktar/kassza-internet-nelkul
 ---
 

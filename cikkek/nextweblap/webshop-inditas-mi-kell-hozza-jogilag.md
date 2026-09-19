@@ -15,6 +15,7 @@ ellenorizve: 2026-09-19
 kapcsolodo:
   - nextweblap/sajat-domain-vagy-aldomain-a-webshopnak
   - nextweblap/termekadat-ami-elad-foto-leiras-gtin
+  - nextbill/kotelezo-e-a-nav-online-szamla
   - nextraktar/black-friday-bolt-es-webshop-kozos-keszlet
 ---
 

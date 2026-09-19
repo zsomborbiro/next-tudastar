@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextbill/kotelezo-e-a-nav-online-szamla
   - nextraktar/online-penztargep-vagy-kasszaprogram
+  - nextweblap/kosarelhagyas-az-elso-harom-javitas
   - nextraktar/napi-zaras-a-boltban
 ---
 

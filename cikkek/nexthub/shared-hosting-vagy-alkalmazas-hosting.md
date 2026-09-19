@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nexthub/hogyan-kerul-egy-github-repo-elesbe
   - nexthub/hol-vannak-az-ugyfeleid-adatai-gdpr-es-hosting
+  - nextsoft/weboldal-vagy-webshop-melyiket-mikor
   - nextraktar/mennyibe-kerul-egy-kasszarendszer
 ---
 

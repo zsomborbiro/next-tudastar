@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nexthub/hogyan-kerul-egy-github-repo-elesbe
   - nexthub/shared-hosting-vagy-alkalmazas-hosting
+  - nextweblap/sajat-domain-vagy-aldomain-a-webshopnak
   - nextraktar/masodik-bolt-nyitasa
 ---
 

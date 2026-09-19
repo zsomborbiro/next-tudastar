@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextweblap/termekadat-ami-elad-foto-leiras-gtin
   - nextweblap/sajat-domain-vagy-aldomain-a-webshopnak
+  - nextbill/szamla-vagy-nyugta-mikor-melyik
   - nextraktar/black-friday-bolt-es-webshop-kozos-keszlet
 ---
 

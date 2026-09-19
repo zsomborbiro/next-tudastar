@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextsoft/mennyibe-kerul-egy-weboldal
   - nextsoft/crm-kisvallalkozasnak-mikor-eri-meg
+  - nextweblap/webshop-inditas-mi-kell-hozza-jogilag
   - nextraktar/black-friday-bolt-es-webshop-kozos-keszlet
 ---
 

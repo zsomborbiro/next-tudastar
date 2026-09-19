@@ -10,6 +10,7 @@ megjelent: 2026-09-19
 kapcsolodo:
   - nextsoft/weboldal-vagy-webshop-melyiket-mikor
   - nextsoft/crm-kisvallalkozasnak-mikor-eri-meg
+  - nexthub/shared-hosting-vagy-alkalmazas-hosting
   - nextraktar/mennyibe-kerul-egy-kasszarendszer
 ---
 

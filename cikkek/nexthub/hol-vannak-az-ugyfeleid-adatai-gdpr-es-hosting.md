@@ -13,6 +13,7 @@ ellenorizve: 2026-09-19
 kapcsolodo:
   - nexthub/shared-hosting-vagy-alkalmazas-hosting
   - nexthub/sajat-domain-bekotese-dns-lepesrol-lepesre
+  - nextsoft/kamerarendszer-a-boltban-mit-szabad-es-mit-kell-kiirni
   - nextraktar/e-nyugta-nyugtaadat-szolgaltatas
 ---
 
