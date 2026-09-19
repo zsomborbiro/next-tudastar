@@ -2,7 +2,7 @@
 termek: nextraktar
 slug: penztarhiany-es-tobblet-a-zarasnal
 cim: "Pénztárhiány és többlet a zárásnál: honnan jön, és mit kezdj vele?"
-metaCim: "Pénztárhiány és többlet a zárásnál — okok és teendők"
+metaCim: "Pénztárhiány és többlet a zárásnál"
 bevezeto: "A nap végén a kasszában lévő készpénz nem egyezik azzal, amit a rendszer mond. Néha kevesebb, néha több — és a többlet ugyanolyan gond, mint a hiány, mert azt jelenti, hogy valami nem úgy lett rögzítve, ahogy történt. Ez a cikk a különbözet okait és a rendjét veszi végig."
 leiras: "Miért nem egyezik a kassza a zárásnál: visszajáró, rögzítetlen kivét, rossz fizetési mód, visszáru. Hogyan találd meg az okot, és hogyan előzd meg a következőt."
 tema: penzugy

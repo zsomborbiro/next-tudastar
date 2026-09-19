@@ -2,9 +2,9 @@
 termek: nextraktar
 slug: visszaru-es-csere-a-boltban
 cim: "Visszáru és csere a boltban: hogyan rögzítsd, hogy a készlet és a kassza egyezzen?"
-metaCim: "Visszáru és csere a boltban — készlet és kassza egyezése"
+metaCim: "Visszáru és csere: készlet és kassza egyben"
 bevezeto: "A vevő visszahozza a terméket, vagy másikra cserélné. A pultnál ez egy perc — a háttérben viszont három dolognak kell megtörténnie egyszerre: a készlet visszakapja a terméket, a kassza kezeli a pénzt, és a bizonylat követi mindkettőt. Ahol ez a három elcsúszik, ott lesz leltárhiány vagy kasszakülönbözet."
-leiras: "Hogyan kezeld a visszárut és a cserét a boltban: mit rögzíts, hogyan kerül vissza a termék a készletbe, mi lesz a pénzzel és a bizonylattal, hogy a kassza egyezzen."
+leiras: "Hogyan kezeld a visszárut és a cserét a boltban: mit rögzíts, hogyan kerül vissza a termék a készletbe, mi lesz a pénzzel és a bizonylattal."
 tema: gyakorlat
 megjelent: 2026-09-19
 kapcsolodo:

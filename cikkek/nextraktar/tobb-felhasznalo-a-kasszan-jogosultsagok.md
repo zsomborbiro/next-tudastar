@@ -2,7 +2,7 @@
 termek: nextraktar
 slug: tobb-felhasznalo-a-kasszan-jogosultsagok
 cim: "Több felhasználó a kasszán: jogosultságok, ki mit tehet, és miért nem mindegy?"
-metaCim: "Jogosultságok a kasszán — ki mit tehet, és miért számít"
+metaCim: "Jogosultságok a kasszán: ki mit tehet"
 bevezeto: "Egy kis boltban mindenki mindent csinál, és a kassza egy jelszóval megy. Amíg ketten vagytok, működik. A harmadik embernél kezdődik az, hogy nem tudni, ki adott kedvezményt, ki sztornózott, ki nyúlt a készlethez — és amikor baj van, a válasz az, hogy „valaki”. A jogosultság nem bizalmatlanság, hanem áttekinthetőség."
 leiras: "Miért kell külön felhasználó minden pénztárosnak, milyen jogosultsági szintek vannak, mit engedj a pénztárosnak és mit tarts a vezetőnél, és mit ad a napló."
 tema: gyakorlat
