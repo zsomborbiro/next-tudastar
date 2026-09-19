@@ -51,7 +51,7 @@ Nagyobb összegnél a forma szerinti kockázatot előleggel, részszámlázássa
 
 ## Hol nézed meg?
 
-Az egyéni vállalkozók a saját nyilvántartásukban kereshetők; a bt. és a kft. a cégjegyzékben, ahol az alapadatok ingyenesek. Az adószám állapotát a NAV nyilvános adatbázisai mutatják, formától függetlenül. A NextCég cégprofiljain a vállalkozási forma és a nyilvános alapadatok a bemutatkozás mellett látszanak — de a hivatalos forrás mindig a nyilvántartás.
+Az egyéni vállalkozók a saját nyilvántartásukban kereshetők; a bt. és a kft. a cégjegyzékben, ahol az alapadatok ingyenesek. Az adószám állapotát a NAV nyilvános adatbázisai mutatják, formától függetlenül. A NextCég cégprofilján a cég a saját nevével — a formával együtt — és elérhetőségeivel jelenik meg, a bemutatkozás mellett; a felelősségi és pénzügyi részleteket viszont mindig a nyilvántartásban nézd meg, az a hivatalos forrás.
 
 ## Röviden
 
