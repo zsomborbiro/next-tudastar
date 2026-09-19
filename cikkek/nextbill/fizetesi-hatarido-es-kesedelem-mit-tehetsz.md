@@ -51,7 +51,7 @@ A nemfizetés legjobb kezelése az, ha nem következik be.
 
 Ez a legegyszerűbb és leggyakrabban hiányzó dolog: egy lista, ami megmutatja, mely számlák lejártak, mennyi ideje, és mennyit érnek. Ha ezt hetente egyszer megnézed, nincs olyan számla, ami hónapokig „elfelejtve" marad. Ha a rendszered ezt nem adja, a táblázatod adja — de valami adja.
 
-A NextBillben a számlák fizetési állapota és lejárata egy helyen látszik, a fizetési emlékeztetők a fenti rend szerint időzíthetők, és a beérkezett banki tételek alapján a számla kiegyenlítettként jelölhető — így a lista mindig azt mutatja, ami tényleg nyitott.
+A NextBillben a számlák fizetési állapota és lejárata egy helyen látszik, a részfizetés és a teljes kiegyenlítés egy összeg megadásával rögzíthető, a lejárt számlákra pedig bekapcsolható az automatikus emlékeztető — hetente egy levél, legfeljebb három — így a lista mindig azt mutatja, ami tényleg nyitott, és az emlékeztetés nem rajtad múlik.
 
 ## Röviden
 
